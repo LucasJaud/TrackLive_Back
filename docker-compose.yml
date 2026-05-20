@@ -1,0 +1,18 @@
+
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: treacklive-db
+    restart: always
+    environment:
+      POSTGRES_DB: treacklive
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: treacklive@2025
+    ports:
+      - "5432:5432"
+    volumes:
+      - treacklive_data:/var/lib/postgresql/data
+
+volumes:
+  treacklive_data:
