@@ -5,6 +5,7 @@ import com.treacklive.treacklive_api.dto.LoginRequestDTO;
 import com.treacklive.treacklive_api.dto.LoginResponseDTO;
 import com.treacklive.treacklive_api.entity.Cliente;
 import com.treacklive.treacklive_api.service.AuthService;
+import com.treacklive.treacklive_api.dto.CadastroClienteResponseDTO;
 
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -23,9 +24,9 @@ public class AuthController {
     }
 
     @PostMapping("/registrar")
-    public ResponseEntity<Cliente> registrar(@Valid @RequestBody CadastroClienteDTO request) {
-        Cliente clienteCriado = authService.cadastrarCliente(request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(clienteCriado);
+    public ResponseEntity<CadastroClienteResponseDTO> registrar(@Valid @RequestBody CadastroClienteDTO request) {
+        CadastroClienteResponseDTO resposta = authService.cadastrarCliente(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(resposta);
     }
 
     @PostMapping("/login")
