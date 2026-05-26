@@ -5,13 +5,9 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class CadastroClienteResponseDTO {
+public class AdminUsuarioDTO {
     private Long id;
     private String nome;
     private String email;
-    private String cpf;
-    private String endereco;
-    private String Telefone;
     private String tipoUsuario;
-
 }

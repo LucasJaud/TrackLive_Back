@@ -2,9 +2,13 @@ package com.treacklive.treacklive_api.service;
 
 import com.treacklive.treacklive_api.dto.ProdutoDTO;
 import com.treacklive.treacklive_api.entity.Produto;
+import com.treacklive.treacklive_api.exception.ProdutoNaoEncontradoException;
 import com.treacklive.treacklive_api.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import com.treacklive.treacklive_api.exception.ProdutoNaoEncontradoException;
+
 import java.util.List;
 
 @Service
@@ -39,5 +43,11 @@ public class ProdutoService {
                 p.getAvaliacao(),
                 p.getReviews()
         );
+    }
+
+    public ProdutoDTO buscarPorId(long id){
+        Produto produto = produtoRepository.findById(id)
+                .orElseThrow(() -> new ProdutoNaoEncontradoException(id));
+        return toDTO(produto);
     }
 }

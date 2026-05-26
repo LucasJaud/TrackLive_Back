@@ -21,4 +21,11 @@ public class CadastroClienteDTO {
     @NotBlank(message = "Senha é obrigatória")
     @Size(min = 6, message = "senha deve ter no minimo 6 caracteres")
     private String senha;
+
+    @NotBlank(message = "endereço é obrigatório")
+    private String endereco;
+
+    @NotBlank(message = "Telefone é Obrigatório")
+    @Size(min = 10, max = 11, message = "O Telefone deve ter de 10 a 11 dígitos")
+    private String Telefone;
 }

@@ -24,4 +24,9 @@ public class ProdutoController {
         }
         return ResponseEntity.ok(produtoService.listarTodos());
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProdutoDTO> buscarPorId(@PathVariable long id) {
+        return ResponseEntity.ok(produtoService.buscarPorId(id));
+    }
 }

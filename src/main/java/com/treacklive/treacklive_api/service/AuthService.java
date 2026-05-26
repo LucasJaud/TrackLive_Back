@@ -48,8 +48,8 @@ public class AuthService {
         cliente.setSenha(passwordEncoder.encode(dto.getSenha()));
         cliente.setTipoUsuario("CLIENTE");
         cliente.setCpf(dto.getCpf());
-        cliente.setEndereco("");
-        cliente.setTelefone("");
+        cliente.setEndereco(dto.getEndereco());
+        cliente.setTelefone(dto.getTelefone());
 
         Cliente salvo = clienteRepository.save(cliente);
         
@@ -58,7 +58,10 @@ public class AuthService {
                 salvo.getNome(),
                 salvo.getEmail(),
                 salvo.getCpf(),
+                salvo.getEndereco(),
+                salvo.getTelefone(),
                 salvo.getTipoUsuario()
+
         );
     }
 
